@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z2z5e5c5e5e5e5e5e5e5e5e5e5e5" crossorigin="anonymous">
+    
+    <title>NEO-TAC-TOE</title>
+</head>
+<body>
+    <div class="cyber-container">
+        <!-- Name Input Modal -->
+        <div class="cyber-modal" id="nameModal">
+            <div class="modal-content">
+                <h2 class="cyber-text">ENTER PLAYER IDENTITIES</h2>
+                <form id="nameForm" class="cyber-form">
+                    <div class="input-group">
+                        <input type="text" id="playerXName" class="cyber-input" required 
+                               placeholder="PLAYER X NAME">
+                        <span class="input-border"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="playerOName" class="cyber-input" required 
+                               placeholder="PLAYER O NAME">
+                        <span class="input-border"></span>
+                    </div>
+                    <button type="submit" class="cyber-button">START GAME</button>
+                </form>
+            </div>
+        </div>
+
+        <main class="cyber-main">
+            <header class="cyber-header">
+                <div class="mode-selector">
+                    <button class="cyber-radio active" data-mode="single" onclick="setGameMode('single')">SOLO</button>
+                    <button class="cyber-radio" data-mode="multi" onclick="setGameMode('multi')">DUAL</button>
+                </div>
+                <h1 class="cyber-title">NEO-TAC-TOE</h1>
+                <div class="player-status">
+                    <div class="cyber-tag active" id="currentPlayerTag">
+                        <span class="player-icon">⚡</span>
+                        <span class="player-name">PLAYER X</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="holo-board-container">
+                <div id="game-board" class="cyber-board"></div>
+            </div>
+
+            <div class="cyber-stats">
+                <div class="stat-card x-stat">
+                    <div class="stat-glow"></div>
+                    <span class="stat-label">X SCORE</span>
+                    <span class="stat-value" id="playerXScore">00</span>
+                </div>
+                <div class="stat-card draw-stat">
+                    <div class="stat-glow"></div>
+                    <span class="stat-label">DRAWS</span>
+                    <span class="stat-value" id="drawsScore">00</span>
+                </div>
+                <div class="stat-card o-stat">
+                    <div class="stat-glow"></div>
+                    <span class="stat-label">O SCORE</span>
+                    <span class="stat-value" id="playerOScore">00</span>
+                </div>
+            </div>
+
+            <div class="cyber-controls">
+                <div class="control-group">
+                    <div class="difficulty-levels">
+                        <button class="cyber-radio" data-level="easy" onclick="setDifficulty('Easy')">EASY</button>
+                        <button class="cyber-radio active" data-level="moderate" onclick="setDifficulty('Moderate')">MED</button>
+                        <button class="cyber-radio" data-level="difficult" onclick="setDifficulty('Difficult')">HARD</button>
+                    </div>
+                    <button class="cyber-button danger" onclick="resetGame()">
+                        NEW MATCH
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
